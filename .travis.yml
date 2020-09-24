@@ -1,6 +1,9 @@
 # Linux and Mac Build Configuration for Travis
 
 language: cpp
+arch:
+  - amd64
+  - ppc64le
 
 os:
   - linux
@@ -27,6 +30,8 @@ matrix:
     # Skip GCC builds on Mac OS X.
     - os: osx
       compiler: gcc
+    - os: osx
+      arch: ppc64le
   include:
     # Additional build using Android NDK.
     - env: BUILD_NDK=ON
@@ -37,6 +42,7 @@ cache:
 branches:
   only:
     - master
+    - ezeeyahoo-patch-1
 
 addons:
   apt:
